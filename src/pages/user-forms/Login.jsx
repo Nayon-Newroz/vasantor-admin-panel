@@ -155,7 +155,7 @@ const Login = () => {
               style={{ padding: "50px" }}
             >
               <img
-                src="/logo-white.png"
+                src="/logo.png"
                 alt=""
                 style={{ display: "block", margin: "auto", maxWidth: "155px" }}
               />

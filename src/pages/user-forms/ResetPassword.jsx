@@ -123,7 +123,7 @@ const ResetPassword = () => {
       >
         <form className={classes.form} onSubmit={onSubmit}>
           <img
-            src="/logo-white.png"
+            src="/logo.png"
             alt=""
             style={{ display: "block", margin: "auto", maxWidth: "155px" }}
           />

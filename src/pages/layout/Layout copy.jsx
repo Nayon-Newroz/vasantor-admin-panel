@@ -246,7 +246,7 @@ export default function Layout() {
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <img
-                src="/logo-white.png"
+                src="/logo.png"
                 alt=""
                 // className={classes.logoStyle}
                 style={{
