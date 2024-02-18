@@ -1,5 +1,5 @@
 body {
-  background: #f7fafc;
+  background: #fafafa;
 }
 
 .linkStyle {
@@ -11,7 +11,6 @@ body {
   color: "#718096";
   padding: "7.5px 14px";
 }
-
 
 /* width */
 ::-webkit-scrollbar {

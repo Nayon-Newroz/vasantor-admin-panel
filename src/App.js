@@ -57,7 +57,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: '"Poppins", sans-serif',
 
     h1: {
       fontSize: "3rem", //48px
@@ -284,7 +284,7 @@ axios.defaults.headers.common["Content-Type"] = "application/json";
 function App() {
   return (
     <div className="App">
-     <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <SnackbarProvider
           maxSnack={1}
           anchorOrigin={{

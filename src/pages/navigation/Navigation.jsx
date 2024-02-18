@@ -6,6 +6,7 @@ import Login from "../user-forms/Login";
 import Verify from "../user-forms/Verify";
 import { AuthContext } from "../../context/AuthContext";
 import Dashboard from "../dashboard/Dashboard";
+import Projects from "../projects/Projects";
 // import NoMatch from "../NoMatch";
 // import Dialog from "@mui/material/Dialog";
 // import DialogContent from "@mui/material/DialogContent";
@@ -36,26 +37,35 @@ const Navigation = () => {
           path="/"
           element={
             <RedirectToHome>
-              <Login />
+              <Projects />
             </RedirectToHome>
           }
         />
-        <Route
+        {/* <Route
+          path="/"
+          element={
+            <RedirectToHome>
+              <Login />
+            </RedirectToHome>
+          }
+        /> */}
+        {/* <Route
           path="verify"
           element={
             <RedirectToHome>
               <Verify />
             </RedirectToHome>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="dashboard"
           element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
-        />
+        /> */}
+
         {/* <Route path="forgot-password" element={<ForgotPassword />} /> */}
         {/* <Route
           path="change-password"
