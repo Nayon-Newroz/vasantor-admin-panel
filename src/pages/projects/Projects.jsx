@@ -34,7 +34,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import Checkbox from '@mui/material/Checkbox';
+import Checkbox from "@mui/material/Checkbox";
 
 const Projects = () => {
   const theme = useTheme();
@@ -76,6 +76,7 @@ const Projects = () => {
           <Grid item xs={6}>
             <Button
               size="small"
+              sx={{ textTransform: "none" }}
               endIcon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +160,7 @@ const Projects = () => {
           </Grid>
         </Grid>
       </Box>
-      <Paper sx={{mb:3.5}}>
+      <Paper sx={{ mb: 3.5 }}>
         {[1, 2, 3, 4].map((item, i) => (
           <Grid container ket={i}>
             {" "}
@@ -179,7 +180,7 @@ const Projects = () => {
                 container
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ mb: 1.125 }}
+                sx={{ mb: 1.25 }}
               >
                 <Grid item size="auto">
                   {" "}
@@ -202,7 +203,7 @@ const Projects = () => {
                 container
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ mb: 1.125 }}
+                sx={{ mb: 1.25 }}
               >
                 <Grid item size="auto">
                   {" "}
@@ -225,7 +226,7 @@ const Projects = () => {
                 container
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ mb: 1.125 }}
+                sx={{ mb: 1.25 }}
               >
                 <Grid item size="auto">
                   {" "}
@@ -248,7 +249,7 @@ const Projects = () => {
                 container
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ mb: 1.125 }}
+                sx={{ mb: 1.25 }}
               >
                 <Grid item size="auto">
                   {" "}
@@ -558,7 +559,7 @@ const Projects = () => {
                         pb: 0.5,
                       }}
                     >
-                      <Grid container alignItems="center" sx={{ mb: 1.125 }}>
+                      <Grid container alignItems="center" sx={{ mb: 1.25 }}>
                         <Grid item size="auto">
                           {" "}
                           <img
@@ -590,7 +591,7 @@ const Projects = () => {
                         container
                         alignItems="center"
                         justifyContent="space-between"
-                        sx={{ mb: 1.125 }}
+                        sx={{ mb: 1.25 }}
                       >
                         <Grid item size="auto">
                           {" "}
@@ -613,7 +614,7 @@ const Projects = () => {
                         container
                         alignItems="center"
                         justifyContent="space-between"
-                        sx={{ mb: 1.125 }}
+                        sx={{ mb: 1.25 }}
                       >
                         <Grid item size="auto">
                           {" "}
@@ -636,7 +637,7 @@ const Projects = () => {
                         container
                         alignItems="center"
                         justifyContent="space-between"
-                        sx={{ mb: 1.125 }}
+                        sx={{ mb: 1.25 }}
                       >
                         <Grid item size="auto">
                           {" "}
@@ -659,7 +660,7 @@ const Projects = () => {
                         container
                         alignItems="center"
                         justifyContent="space-between"
-                        sx={{ mb: 1.125 }}
+                        sx={{ mb: 1.25 }}
                       >
                         <Grid item size="auto">
                           {" "}
@@ -686,27 +687,134 @@ const Projects = () => {
           </Grid>
         ))}
       </Paper>
-      <Paper sx={{ p: 3, pb: 0 }}>
+      <Paper
+      //  sx={{ p: 3, pb: 0 }}
+      >
+        <Box
+          sx={{
+            p: 1.125,
+            borderBottom: "2px solid #E5E5E5",
+          }}
+        >
+          <Grid container alignItems="center">
+            <Grid item xs={3}>
+              <Typography variant="medium" sx={{ fontWeight: 500 }}>
+                Task List
+              </Typography>
+            </Grid>
+            <Grid item xs={9} sx={{ textAlign: "right" }}>
+              <Grid container alignItems="center" justifyContent="flex-end">
+              <Grid item xs="auto" sx={{ borderLeft: "1px solid #E5E5E5" }}>
+                  <IconButton sx={{ borderRadius: "8px" }}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="19"
+                      viewBox="0 0 18 19"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.875 15.425V3.575C7.875 2.45 7.395 2 6.2025 2H3.1725C1.98 2 1.5 2.45 1.5 3.575V15.425C1.5 16.55 1.98 17 3.1725 17H6.2025C7.395 17 7.875 16.55 7.875 15.425Z"
+                        stroke="#555555"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16.5 15.425V3.575C16.5 2.45 16.02 2 14.8275 2H11.7975C10.605 2 10.125 2.45 10.125 3.575V15.425C10.125 16.55 10.605 17 11.7975 17H14.8275C16.02 17 16.5 16.55 16.5 15.425Z"
+                        stroke="#555555"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </IconButton>
+                  &nbsp;
+                </Grid>
+                <Grid item xs="auto" sx={{ borderLeft: "1px solid #E5E5E5" }}>
+                  <Button
+                    size="small"
+                    sx={{ textTransform: "none" }}
+                    endIcon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M13.9999 9C13.7347 9 13.4803 8.89464 13.2928 8.70711C13.1053 8.51957 12.9999 8.26522 12.9999 8C12.9999 7.73478 13.1053 7.48043 13.2928 7.29289C13.4803 7.10536 13.7347 7 13.9999 7H18.9999C19.2651 7 19.5195 7.10536 19.707 7.29289C19.8946 7.48043 19.9999 7.73478 19.9999 8V13C19.9999 13.2652 19.8946 13.5196 19.707 13.7071C19.5195 13.8946 19.2651 14 18.9999 14C18.7347 14 18.4803 13.8946 18.2928 13.7071C18.1053 13.5196 17.9999 13.2652 17.9999 13V10.414L13.7069 14.707C13.5194 14.8945 13.2651 14.9998 12.9999 14.9998C12.7348 14.9998 12.4804 14.8945 12.2929 14.707L9.99992 12.414L5.70692 16.707C5.51832 16.8892 5.26571 16.99 5.00352 16.9877C4.74132 16.9854 4.49051 16.8802 4.3051 16.6948C4.11969 16.5094 4.01452 16.2586 4.01224 15.9964C4.00997 15.7342 4.11076 15.4816 4.29292 15.293L9.29292 10.293C9.48045 10.1055 9.73475 10.0002 9.99992 10.0002C10.2651 10.0002 10.5194 10.1055 10.7069 10.293L12.9999 12.586L16.5859 9H13.9999Z"
+                          fill="#555555"
+                        />
+                      </svg>
+                    }
+                  >
+                    Chart view
+                  </Button>
+                </Grid>
+              
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
         <TableContainer>
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ width: "75px" }}>Photo</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Document Type</TableCell>
-                <TableCell>Document Number</TableCell>
-                <TableCell>
+                <TableCell colSpan={2}>
                   <Grid
                     container
                     alignItems="center"
                     justifyContent="space-between"
                   >
                     <Grid item xs="auto">
-                      Country
+                      Title
                     </Grid>
                     <Grid item xs="auto">
                       <IconButton>
-                        {/* <FilterIcon color={theme.palette.text.light} /> */}{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00658 12.6667L1.65991 9.32666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5.00659 1.33331V12.6666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 1.33331L12.3398 4.67331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 12.6666V1.33331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
                       </IconButton>
                     </Grid>
                   </Grid>
@@ -718,20 +826,220 @@ const Projects = () => {
                     justifyContent="space-between"
                   >
                     <Grid item xs="auto">
-                      Created At{" "}
+                      Rule set
                     </Grid>
                     <Grid item xs="auto">
                       <IconButton>
-                        {/* <FilterIcon color={theme.palette.text.light} /> */}{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00658 12.6667L1.65991 9.32666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5.00659 1.33331V12.6666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 1.33331L12.3398 4.67331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 12.6666V1.33331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
                       </IconButton>
                     </Grid>
                   </Grid>
                 </TableCell>
-                <TableCell align="right">
-                  <IconButton>
-                    {/* <MenuIcon color={theme.palette.text.light} /> */}
-                  </IconButton>
+                <TableCell>
+                  <Grid
+                    container
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <Grid item xs="auto">
+                      Status
+                    </Grid>
+                    <Grid item xs="auto">
+                      <IconButton>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00658 12.6667L1.65991 9.32666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5.00659 1.33331V12.6666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 1.33331L12.3398 4.67331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 12.6666V1.33331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </IconButton>
+                    </Grid>
+                  </Grid>
                 </TableCell>
+                <TableCell>
+                  <Grid
+                    container
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <Grid item xs="auto">
+                      Type
+                    </Grid>
+                    <Grid item xs="auto">
+                      <IconButton>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00658 12.6667L1.65991 9.32666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5.00659 1.33331V12.6666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 1.33331L12.3398 4.67331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 12.6666V1.33331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </IconButton>
+                    </Grid>
+                  </Grid>
+                </TableCell>
+                <TableCell>
+                  <Grid
+                    container
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <Grid item xs="auto">
+                      Progress
+                    </Grid>
+                    <Grid item xs="auto">
+                      <IconButton>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00658 12.6667L1.65991 9.32666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5.00659 1.33331V12.6666"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 1.33331L12.3398 4.67331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8.99316 12.6666V1.33331"
+                            stroke="#555555"
+                            stroke-width="1.5"
+                            stroke-miterlimit="10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </IconButton>
+                    </Grid>
+                  </Grid>
+                </TableCell>
+                <TableCell align="right">A</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -739,30 +1047,45 @@ const Projects = () => {
                 <TableRow
                 // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell>
-                    <Avatar alt="Remy Sharp" src="/images/user.png" />
+                  <TableCell sx={{ width: "40px", p: 0 }}>
+                    <Checkbox size="small" />
                   </TableCell>
-                  <TableCell
-                    sx={{
-                      color: `${theme.palette.primary.main}`,
-                      fontWeight: 500,
-                    }}
-                  >
-                    Cameron Williamson
+                  <TableCell sx={{ width: "320px" }}>
+                    <Box
+                      sx={{
+                        width: "320px",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden ",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      Understanding color theory: the color wheel and finding
+                      complementary colors
+                    </Box>
                   </TableCell>
-                  <TableCell>Passport</TableCell>
-                  <TableCell>2641365884226</TableCell>
-                  <TableCell>Iraq</TableCell>
-                  <TableCell
-                    sx={{
-                      color: `${theme.palette.text.light}`,
-                    }}
-                  >
-                    17 June 2022
-                  </TableCell>
+                  <TableCell>Cell label</TableCell>
+                  <TableCell>Cell label</TableCell>
+                  <TableCell>Cell label</TableCell>
+                  <TableCell>70%</TableCell>
+
                   <TableCell align="right">
-                    <IconButton>
-                      {/* <MenuIcon color={theme.palette.text.light} /> */}
+                    <IconButton sx={{ background: "#FAFAFA" }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="6"
+                        height="10"
+                        viewBox="0 0 6 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M1.7124 8.30001L4.42907 5.58335C4.7499 5.26251 4.7499 4.73751 4.42907 4.41668L1.7124 1.70001"
+                          stroke="#969696"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
                     </IconButton>
                   </TableCell>
                 </TableRow>

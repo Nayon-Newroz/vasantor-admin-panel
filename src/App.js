@@ -258,18 +258,19 @@ const theme = createTheme({
       styleOverrides: {
         head: {
           color: ColorPalette.light.text.light,
-          fontSize: "13px",
-          fontWeight: 600,
+          fontSize: "14px",
+          fontWeight: 500,
           padding: "16px",
           borderBottom: `1px solid ${ColorPalette.light.border.main}`,
           fontFamily: "'Poppins', sans-serif",
           background: "#fff",
+          borderBottom: "2px solid #E5E5E5",
         },
         body: {
-          color: "#444A6D",
+          color: ColorPalette.light.text.light,
           fontSize: "14px",
           fontWeight: 400,
-          padding: "16px",
+          padding: "14px",
           fontFamily: "'Poppins', sans-serif",
         },
       },
