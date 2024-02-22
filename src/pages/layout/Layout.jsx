@@ -23,6 +23,7 @@ import Fade from "@mui/material/Fade";
 import Zoom from "@mui/material/Zoom";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navigation from "../navigation/Navigation";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 
 const drawerWidth = 240;
 
@@ -140,13 +141,12 @@ export default function Layout() {
 
   const iconStyle = { position: "relative", left: 7 };
   const activeStyle = {
+    background: theme.palette.primary.light,
     ["&.MuiListItemButton-root"]: {
       // borderRadius: "10px",
       // "& span": {
       //   color: "#fff",
       // },
-      background: "#ededed",
-
       // ["& .MuiSvgIcon-root"]: {
       //   color: "#fff",
       // },
@@ -201,8 +201,6 @@ export default function Layout() {
                 cursor: "pointer",
                 py: 1.5,
               }}
-              
-
             >
               <img
                 src="/VS.png"
@@ -230,7 +228,7 @@ export default function Layout() {
                 to="/"
                 sx={[
                   { ...listButtonStyle },
-                  pathname === "/projects" && { ...activeStyle },
+                  pathname === "/" && { ...activeStyle },
                 ]}
               >
                 <ListItemIcon
@@ -777,9 +775,35 @@ export default function Layout() {
           </LightTooltip>
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, pt: 7,px:4 }}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         {/* <DrawerHeader /> */}
         <Navigation />
+        <footer
+          id="footer"
+          style={{
+            backgroundColor: "#F8F8F8",
+            borderTop: "1px solid #E7E7E7",
+            // textAlign: "center",
+            padding: "0px 0px 0px 70px",
+
+            position: "fixed",
+            left: "0",
+            bottom: "0",
+            // height: "60px",
+            width: "100%",
+          }}
+        >
+          <Breadcrumbs
+            aria-label="breadcrumb"
+            separator="›"
+            // className={classes.breadcrumbsStyle}
+          >
+            <Link to="/projects">Projects</Link>
+            <Link to="/projects">International</Link>
+
+            <Link to="#">VerifyMe Web</Link>
+          </Breadcrumbs>
+        </footer>
       </Box>
     </Box>
   );

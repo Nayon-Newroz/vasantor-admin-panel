@@ -240,11 +240,11 @@ const theme = createTheme({
           "& li a": {
             textDecoration: "none",
             fontSize: "14px",
-            color: ColorPalette.light.text.main, // Replace with your text color
+            color: ColorPalette.light.text.light, // Replace with your text color
           },
           "& li:last-child": {
             "& a": {
-              color: ColorPalette.light.text.fade, // Replace with your fade text color
+              color: ColorPalette.light.primary.main, // Replace with your fade text color
               cursor: "default",
             },
           },

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const ForgotPasswordOTPVarify = ({ email }) => {
   const classes = useStyles();
   const navigate = useNavigate();
-  const { login, fibremit_admin_panel } = useContext(AuthContext);
+  const { login, vasantor_admin_panel } = useContext(AuthContext);
 
   const [showOTPSection, setShowOTPSection] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -105,7 +105,7 @@ const ForgotPasswordOTPVarify = ({ email }) => {
               >
                 {" "}
                 We have sent a 6 digits varification code to{" "}
-                {fibremit_admin_panel.email}
+                {vasantor_admin_panel.email}
               </span>
             </Typography>
             {/* {otpTimeOut && (

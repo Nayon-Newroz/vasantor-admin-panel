@@ -41,7 +41,7 @@ import { Box } from "@mui/material";
 const Verify = () => {
   // const classes = useStyles();
   const navigate = useNavigate();
-  const { login, fibremit_admin_panel } = useContext(AuthContext);
+  const { login, vasantor_admin_panel } = useContext(AuthContext);
 
   const [loading, setLoading] = useState(false);
   const [otpTimeOut, setOtpTimeOut] = useState(false);
@@ -73,8 +73,8 @@ const Verify = () => {
     try {
       setLoading(true);
       let data = {
-        email: fibremit_admin_panel.email,
-        password: fibremit_admin_panel.password,
+        email: vasantor_admin_panel.email,
+        password: vasantor_admin_panel.password,
         token: "my token",
       };
 
@@ -133,7 +133,7 @@ const Verify = () => {
             >
               {" "}
               We have sent a 6 digits varification code to{" "}
-              {fibremit_admin_panel.email}
+              {vasantor_admin_panel.email}
             </span>
           </Typography>
           {otpTimeOut === false && (

@@ -7,6 +7,8 @@ import Verify from "../user-forms/Verify";
 import { AuthContext } from "../../context/AuthContext";
 import Dashboard from "../dashboard/Dashboard";
 import Projects from "../projects/Projects";
+import ProjectDetails from "../projects/ProjectDetails";
+import { Box } from "@mui/material";
 // import NoMatch from "../NoMatch";
 // import Dialog from "@mui/material/Dialog";
 // import DialogContent from "@mui/material/DialogContent";
@@ -14,33 +16,27 @@ import Projects from "../projects/Projects";
 // import Country from "../country/Country";
 
 function PrivateRoute({ children }) {
-  const { fibremit_admin_panel } = useContext(AuthContext);
-  // console.log("fibremit_admin_panel?.data?.token", fibremit_admin_panel);
-  return fibremit_admin_panel?.access_token ? children : <Navigate to="/" />;
+  const { vasantor_admin_panel } = useContext(AuthContext);
+  // console.log("vasantor_admin_panel?.data?.token", vasantor_admin_panel);
+  return vasantor_admin_panel?.access_token ? children : <Navigate to="/" />;
 }
 function RedirectToHome({ children }) {
-  const { fibremit_admin_panel } = useContext(AuthContext);
+  const { vasantor_admin_panel } = useContext(AuthContext);
 
-  return !fibremit_admin_panel?.access_token ? (
+  return !vasantor_admin_panel?.access_token ? (
     children
   ) : (
     <Navigate to="/dashboard" />
   );
 }
 const Navigation = () => {
-  const { fibremit_admin_panel } = useContext(AuthContext);
+  const { vasantor_admin_panel } = useContext(AuthContext);
 
   return (
-    <div>
+    <Box sx={{ mb: 5 }}>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <RedirectToHome>
-              <Projects />
-            </RedirectToHome>
-          }
-        />
+        <Route path="/" element={<Projects />} />
+        <Route path="project-details/:id" element={<ProjectDetails />} />
         {/* <Route
           path="/"
           element={
@@ -78,10 +74,10 @@ const Navigation = () => {
 
         {/* <Route
           path="*"
-          element={!fibremit_admin_panel.token ? <Navigate to="/" /> : <NoMatch />}
+          element={!vasantor_admin_panel.token ? <Navigate to="/" /> : <NoMatch />}
         /> */}
       </Routes>
-    </div>
+    </Box>
   );
 };
 

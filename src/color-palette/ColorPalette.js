@@ -1,7 +1,7 @@
 let ColorPalette = {
   light: {
     background: {
-      default: "#F1F1F1", // Change the background color for dark mode
+      default: "#FAFAFA", // Change the background color for dark mode
     },
     primary: {
       main: "#687535",
@@ -36,7 +36,7 @@ let ColorPalette = {
     text: {
       main: "#222222",
       light: "#555555",
-      fade: "#A0AEC0",
+      fade: "#969696",
       contrastText: "#fff",
     },
     border: {

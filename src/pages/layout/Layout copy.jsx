@@ -139,8 +139,8 @@ export default function Layout() {
   let pathname = useLocation().pathname;
   // console.log("pathname", pathname);
 
-  const { login, fibremit_admin_panel, logout } = useContext(AuthContext);
-  // console.log("fibremit_admin_panel", fibremit_admin_panel);
+  const { login, vasantor_admin_panel, logout } = useContext(AuthContext);
+  // console.log("vasantor_admin_panel", vasantor_admin_panel);
   const [open, setOpen] = useState(true);
 
   const [openLoadingDialog, setOpenLoadingDialog] = useState(false);
@@ -232,7 +232,7 @@ export default function Layout() {
         setOpenLoadingDialog={setOpenLoadingDialog}
       />
     );
-  } else if (!fibremit_admin_panel.access_token) {
+  } else if (!vasantor_admin_panel.access_token) {
     return (
       <Navigation
         openLoadingDialog={openLoadingDialog}
