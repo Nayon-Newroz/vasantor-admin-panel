@@ -36,10 +36,18 @@ import MenuItem from "@mui/material/MenuItem";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import AvatarGroup from "@mui/material/AvatarGroup";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import Editor from "./Editor";
 
 const ProjectDetails = () => {
   const theme = useTheme();
   const [activeMenuName, setActiveMenuName] = useState("Editor");
+  const [language, setLanguage] = useState("");
+
+  const handleChange = (event) => {
+    setLanguage(event.target.value);
+  };
   return (
     <div>
       {" "}
@@ -342,6 +350,9 @@ const ProjectDetails = () => {
               </Button>
             </Grid>
           </Grid>
+        </Box>
+        <Box >
+         <Editor/>
         </Box>
       </Box>
     </div>
