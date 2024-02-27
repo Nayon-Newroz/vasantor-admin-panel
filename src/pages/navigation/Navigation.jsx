@@ -33,7 +33,7 @@ const Navigation = () => {
   const { vasantor_admin_panel } = useContext(AuthContext);
 
   return (
-    <Box sx={{ mb: 5 }}>
+    <Box >
       <Routes>
         <Route path="/" element={<Projects />} />
         <Route path="project-details/:id" element={<ProjectDetails />} />

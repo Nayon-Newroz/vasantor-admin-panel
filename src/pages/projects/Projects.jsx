@@ -63,7 +63,7 @@ const Projects = () => {
   };
 
   return (
-    <div>
+    <Box sx={{mb:5}}>
       <Box
         sx={{
           pb: 1.125,
@@ -1614,7 +1614,7 @@ const Projects = () => {
           </Box>
         </Paper>
       </Box>
-    </div>
+    </Box>
   );
 };
 

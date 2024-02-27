@@ -39,14 +39,27 @@ import AvatarGroup from "@mui/material/AvatarGroup";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Editor from "./Editor";
+import Upload from "./Upload";
 
 const ProjectDetails = () => {
   const theme = useTheme();
-  const [activeMenuName, setActiveMenuName] = useState("Editor");
+  const [activeMenuName, setActiveMenuName] = useState("Upload");
   const [language, setLanguage] = useState("");
 
   const handleChange = (event) => {
     setLanguage(event.target.value);
+  };
+  const showChild = () => {
+    switch (activeMenuName) {
+      case "Editor":
+        return <Editor />;
+
+      case "Upload":
+        return <Upload />;
+
+      default:
+        break;
+    }
   };
   return (
     <div>
@@ -351,9 +364,7 @@ const ProjectDetails = () => {
             </Grid>
           </Grid>
         </Box>
-        <Box >
-         <Editor/>
-        </Box>
+        <Box>{showChild()}</Box>
       </Box>
     </div>
   );

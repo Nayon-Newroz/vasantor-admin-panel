@@ -49,7 +49,7 @@ const Editor = () => {
     setLanguage(event.target.value);
   };
   return (
-    <div>
+    <Box>
       <Grid container>
         <Grid item xs={9} sx={{ pr: 2 }}>
           <Grid container alignItems="center">
@@ -297,15 +297,15 @@ const Editor = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Paper
+          <Box
             sx={{
               // mb: 3.5,
-              boxShadow: "none",
-              height: "Calc(100vh - 235px)",
+              height: "Calc(100vh - 233px)",
               overflow: "auto",
+              background: "#fff",
             }}
           >
-            {[1, 2, 3, 4].map((item, i) => (
+            {[1, 2, 3, 4, 5, 6].map((item, i) => (
               <Grid container ket={i}>
                 {" "}
                 <Grid
@@ -314,11 +314,10 @@ const Editor = () => {
                   sx={{
                     py: 2,
                     px: 2,
-                    borderBottom: "1px solid #ECECEC",
+                    borderBottom: i < 5 && "1px solid #ECECEC",
                     borderRight: "1px solid #ECECEC",
                   }}
                 >
-                  {/* <Link to="#" style={{ textDecoration: "none" }}> */}
                   <Typography
                     variant="medium"
                     color="primary.main"
@@ -330,7 +329,6 @@ const Editor = () => {
                   >
                     Brand tagline
                   </Typography>
-                  {/* </Link> */}
                   <Box sx={{ mb: 1.25 }}>
                     <IconButton sx={{ borderRadius: "8px" }}>
                       <svg
@@ -487,7 +485,7 @@ const Editor = () => {
                       />
                     </Stack>
                   </Box>
-                  <Box sx={{ mb: 1.25 }}>
+                  <Box>
                     <IconButton sx={{ borderRadius: "8px" }}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -693,7 +691,7 @@ const Editor = () => {
                     container
                     alignItems="center"
                     spacing={2.5}
-                    sx={{ mb: 2.5 }}
+                    // sx={{ mb: 2.5 }}
                   >
                     <Grid item sx={{ width: "140px" }}>
                       <Grid container alignItems="center">
@@ -730,7 +728,7 @@ const Editor = () => {
                 </Grid>
               </Grid>
             ))}
-          </Paper>
+          </Box>
         </Grid>
         <Grid item xs={3} sx={{ background: "#fff" }}>
           <Grid
@@ -777,13 +775,11 @@ const Editor = () => {
               </IconButton>
             </Grid>
           </Grid>
-          <Paper
+          <Box
             sx={{
-              // mb: 3.5,
-              boxShadow: "none",
-              height: "Calc(100vh - 235px)",
+              height: "Calc(100vh - 233px)",
               py: 3,
-              background: "red",
+              background: "#fff",
               boxSizing: "border-box",
             }}
           >
@@ -791,14 +787,14 @@ const Editor = () => {
               container
               justifyContent="space-between"
               flexDirection="column"
-              sx={{ height: "100%" }}
+              sx={{ height: "100%", pl: 3 }}
             >
               <Grid
                 item
                 sx={{
-                  background: "green",
+                  // background: "green",
                   overflow: "auto",
-                  height: "556px",
+                  height: "Calc(100vh - 380px)",
                   px: 3,
                 }}
               >
@@ -815,7 +811,7 @@ const Editor = () => {
                     sx={{
                       width: 44,
                       height: 44,
-                      bgcolor: `${theme.palette.success.light}`,
+                      bgcolor: `#fff`,
                       position: "absolute",
                       top: 0,
                       left: -22,
@@ -934,7 +930,7 @@ const Editor = () => {
                         sx={{
                           width: 44,
                           height: 44,
-                          bgcolor: `${theme.palette.success.light}`,
+                          bgcolor: `#fff`,
                         }}
                       >
                         <img src="/user.png" />
@@ -1058,7 +1054,7 @@ const Editor = () => {
                         sx={{
                           width: 44,
                           height: 44,
-                          bgcolor: `${theme.palette.success.light}`,
+                          bgcolor: `#fff`,
                         }}
                       >
                         <img src="/user.png" />
@@ -1210,7 +1206,7 @@ const Editor = () => {
                 <br />
                 <br />
               </Grid>
-              <Grid item sx={{ background: "white", py: 2 }}>
+              <Grid item sx={{ py: 2, pl: 3 }}>
                 {" "}
                 <TextField
                   sx={{ mr: 1 }}
@@ -1259,10 +1255,10 @@ const Editor = () => {
                 </Button>
               </Grid>
             </Grid>
-          </Paper>
+          </Box>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 
