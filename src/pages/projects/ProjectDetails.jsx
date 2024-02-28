@@ -40,10 +40,11 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Editor from "./Editor";
 import Upload from "./Upload";
+import Download from "./Download";
 
 const ProjectDetails = () => {
   const theme = useTheme();
-  const [activeMenuName, setActiveMenuName] = useState("Upload");
+  const [activeMenuName, setActiveMenuName] = useState("Download");
   const [language, setLanguage] = useState("");
 
   const handleChange = (event) => {
@@ -56,6 +57,8 @@ const ProjectDetails = () => {
 
       case "Upload":
         return <Upload />;
+      case "Download":
+        return <Download />;
 
       default:
         break;
