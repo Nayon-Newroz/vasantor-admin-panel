@@ -699,7 +699,7 @@ const Editor = () => {
                           {" "}
                           <img
                             src="/SA.svg"
-                            alt="USA flag"
+                            alt="SA flag"
                             style={{ position: "relative", top: 3 }}
                           />
                         </Grid>

@@ -72,6 +72,11 @@ const rejectStyle = {
 
 const Download = () => {
   const theme = useTheme();
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
     useDropzone({ accept: { "image/*": [] } });
 
@@ -146,6 +151,45 @@ const Download = () => {
                       }}
                     >
                       All (2/2)
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell sx={{ width: "30px", p: 0 }}>
+                      <Checkbox size="small" color="info" />
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        pl: 0,
+                        py: 0,
+                        fontWeight: 600,
+                        color: theme.palette.text.light,
+                      }}
+                    >
+                      <img
+                        src="/US.svg"
+                        style={{ position: "relative", top: 3 }}
+                      />{" "}
+                      &nbsp; English{" "}
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: theme.palette.info.main,
+                        }}
+                      >
+                        en
+                      </Link>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        pl: 0,
+                        py: 0,
+                        fontWeight: 600,
+                        color: theme.palette.text.light,
+                      }}
+                    >
+                      
                     </TableCell>
                   </TableRow>
                 </TableBody>
