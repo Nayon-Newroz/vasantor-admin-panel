@@ -186,7 +186,8 @@ const theme = createTheme({
     MuiLinearProgress: {
       styleOverrides: {
         root: {
-          borderRadius: "50px", // Adjust the border-radius value as needed
+          height:"6px",
+          borderRadius: "100vw", // Adjust the border-radius value as needed
           backgroundColor: ColorPalette.light.border.main, // Change the background color as needed
         },
       },

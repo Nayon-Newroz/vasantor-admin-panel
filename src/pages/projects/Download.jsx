@@ -41,6 +41,7 @@ import Stack from "@mui/material/Stack";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { useDropzone } from "react-dropzone";
 import Alert from "@mui/material/Alert";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const baseStyle = {
   flex: 1,
@@ -72,26 +73,21 @@ const rejectStyle = {
 
 const Download = () => {
   const theme = useTheme();
-  const [age, setAge] = React.useState("");
+  const [age, setAge] = React.useState(10);
+  const [fileFormateOpen, setFileFormateOpen] = useState(true);
+  const [fileFormateOpen2, setFileFormateOpen2] = useState(true);
+  const [fileStructureOpen, setFileStructureOpen] = useState(true);
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-    useDropzone({ accept: { "image/*": [] } });
-
-  const style = useMemo(
-    () => ({
-      ...baseStyle,
-      ...(isFocused ? focusedStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
-    }),
-    [isFocused, isDragAccept, isDragReject]
-  );
 
   return (
-    <Box>
+    <Box
+      sx={{
+        
+      }}
+    >
       <Grid container>
         <Grid
           item
@@ -100,101 +96,483 @@ const Download = () => {
             pr: 2,
             py: 2,
             height: "Calc(100vh - 177px)",
+            overflow: "auto",
             boxSizing: "border-box",
+ 
           }}
         >
           <Alert
             icon={false}
             severity="warning"
-            sx={{ color: "#7B5100", pa: 2, py: 1, mb: 2 }}
+            sx={{ color: "#7B5100", p: 2, py: 1, mb: 2 }}
           >
             Your project contains 4 QA issues.
           </Alert>
-          <Box sx={{ p: 2, background: "#fff" }}>
+          <Box sx={{ p: 2, background: "#fff", mb: 1 }}>
             <Box>
-              <IconButton sx={{ borderRadius: "8px" }}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  fill="none"
-                >
-                  <path
-                    d="M11.2797 6.0333L6.93306 1.68664C6.41973 1.1733 5.57973 1.1733 5.06639 1.68664L0.719727 6.0333"
-                    stroke="#222222"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+              <IconButton
+                sx={{ borderRadius: "8px" }}
+                onClick={() => setFileFormateOpen(!fileFormateOpen)}
+              >
+                {fileFormateOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.2797 6.0333L6.93306 1.68664C6.41973 1.1733 5.57973 1.1733 5.06639 1.68664L0.719727 6.0333"
+                      stroke="#222222"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.28 1.30154L6.9333 5.6482C6.41997 6.16154 5.57997 6.16154 5.06664 5.6482L0.719971 1.30154"
+                      stroke="#222222"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
               </IconButton>
-              <Typography variant="medium" sx={{ display: "inline-flex" }}>
+              <Typography
+                variant="medium"
+                sx={{ display: "inline-flex", fontWeight: 600 }}
+              >
                 File format
               </Typography>
             </Box>
-            <TableContainer sx={{ py: 1.125 }}>
-              <Table aria-label="simple table">
-                <TableBody>
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            <Collapse in={fileFormateOpen}>
+              <FormControl fullWidth size="small" sx={{ my: 1.125 }}>
+                {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={age}
+                  // label="Age"
+                  // onChange={handleChange}
+                >
+                  <MenuItem value={10}>JSON (.json)</MenuItem>
+                </Select>
+
+                <TableContainer sx={{ px: 4, mt: 1 }}>
+                  <Table aria-label="simple table">
+                    <TableBody>
+                      <TableRow sx={{ "& td, & th": { border: 0 } }}>
+                        <TableCell sx={{ width: "30px", p: 0 }}>
+                          <Checkbox size="small" />
+                        </TableCell>
+                        <TableCell sx={{ pl: 0, py: 0, fontWeight: 600 }}>
+                          Include all platform keys
+                          <IconButton sx={{ borderRadius: "8px" }}>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                            >
+                              <path
+                                d="M8.00016 14.6667C11.6668 14.6667 14.6668 11.6667 14.6668 8.00004C14.6668 4.33337 11.6668 1.33337 8.00016 1.33337C4.3335 1.33337 1.3335 4.33337 1.3335 8.00004C1.3335 11.6667 4.3335 14.6667 8.00016 14.6667Z"
+                                stroke="#969696"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M8.00244 10.6666L8.00244 7.33329"
+                                stroke="#969696"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M8.00586 5.33337L7.99987 5.33337"
+                                stroke="#969696"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </IconButton>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </FormControl>
+            </Collapse>
+          </Box>
+          <Box sx={{ p: 2, background: "#fff", mb: 1 }}>
+            <Box>
+              <IconButton
+                sx={{ borderRadius: "8px" }}
+                onClick={() => setFileFormateOpen2(!fileFormateOpen2)}
+              >
+                {fileFormateOpen2 ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
                   >
-                    <TableCell sx={{ width: "30px", p: 0 }}>
-                      <Checkbox size="small" color="info" />
-                    </TableCell>
-                    <TableCell
-                      sx={{
-                        pl: 0,
-                        py: 0,
-                        fontWeight: 600,
-                        color: theme.palette.text.light,
-                      }}
-                    >
-                      All (2/2)
-                    </TableCell>
-                  </TableRow>
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    <path
+                      d="M11.2797 6.0333L6.93306 1.68664C6.41973 1.1733 5.57973 1.1733 5.06639 1.68664L0.719727 6.0333"
+                      stroke="#222222"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
                   >
-                    <TableCell sx={{ width: "30px", p: 0 }}>
-                      <Checkbox size="small" color="info" />
-                    </TableCell>
-                    <TableCell
-                      sx={{
-                        pl: 0,
-                        py: 0,
-                        fontWeight: 600,
-                        color: theme.palette.text.light,
-                      }}
+                    <path
+                      d="M11.28 1.30154L6.9333 5.6482C6.41997 6.16154 5.57997 6.16154 5.06664 5.6482L0.719971 1.30154"
+                      stroke="#222222"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
+              </IconButton>
+              <Typography
+                variant="medium"
+                sx={{ display: "inline-flex", fontWeight: 600 }}
+              >
+                File format
+              </Typography>
+            </Box>
+            <Collapse in={fileFormateOpen2}>
+              <TableContainer sx={{ py: 1.125 }}>
+                <Table aria-label="simple table">
+                  <TableBody>
+                    <TableRow
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      <img
-                        src="/US.svg"
-                        style={{ position: "relative", top: 3 }}
-                      />{" "}
-                      &nbsp; English{" "}
-                      <Link
-                        style={{
-                          textDecoration: "none",
-                          color: theme.palette.info.main,
+                      <TableCell
+                        colSpan={2}
+                        sx={{
+                          pl: 0,
+                          py: 0,
+                          fontWeight: 600,
+                          color: theme.palette.text.light,
                         }}
                       >
-                        en
-                      </Link>
-                    </TableCell>
-                    <TableCell
-                      sx={{
-                        pl: 0,
-                        py: 0,
-                        fontWeight: 600,
-                        color: theme.palette.text.light,
-                      }}
+                        <Checkbox size="small" color="info" /> All (2/2)
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
+                      <TableCell
+                        sx={{
+                          pl: 0,
+                          py: 0,
+                          fontWeight: 600,
+                          color: theme.palette.text.light,
+                          width: "50%",
+                        }}
+                      >
+                        <Checkbox size="small" color="info" />
+                        <img
+                          src="/US.svg"
+                          style={{ position: "relative", top: 3 }}
+                        />{" "}
+                        &nbsp; English{" "}
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: theme.palette.info.main,
+                          }}
+                        >
+                          en
+                        </Link>
+                      </TableCell>
+                      <TableCell
+                        sx={{
+                          pl: 0,
+                          py: 0,
+                          fontWeight: 600,
+                          color: theme.palette.text.light,
+                        }}
+                      >
+                        <Grid container alignItems="center">
+                          <Grid item sx={{ width: "50px" }}>
+                            100%
+                          </Grid>
+                          <Grid item sx={{ width: "Calc(100% - 50px)" }}>
+                            <LinearProgress variant="determinate" value={100} />
+                          </Grid>
+                        </Grid>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell
+                        sx={{
+                          pl: 0,
+                          py: 0,
+                          fontWeight: 600,
+                          color: theme.palette.text.light,
+                          width: "50%",
+                        }}
+                      >
+                        <Checkbox size="small" color="info" />
+                        <img
+                          src="/BD.svg"
+                          style={{ position: "relative", top: 3 }}
+                        />{" "}
+                        &nbsp; Bengali (Bangladesh){" "}
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: theme.palette.info.main,
+                          }}
+                        >
+                          bn_BD
+                        </Link>
+                      </TableCell>
+                      <TableCell
+                        sx={{
+                          pl: 0,
+                          py: 0,
+                          fontWeight: 600,
+                          color: theme.palette.text.light,
+                        }}
+                      >
+                        <Grid container alignItems="center">
+                          <Grid item sx={{ width: "50px" }}>
+                            100%
+                          </Grid>
+                          <Grid item sx={{ width: "Calc(100% - 50px)" }}>
+                            <LinearProgress variant="determinate" value={100} />
+                          </Grid>
+                        </Grid>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Collapse>
+          </Box>
+          <Box sx={{ p: 2, background: "#fff", mb: 1 }}>
+            <Box>
+              <IconButton
+                sx={{ borderRadius: "8px" }}
+                onClick={() => setFileStructureOpen(!fileStructureOpen)}
+              >
+                {fileStructureOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.2797 6.0333L6.93306 1.68664C6.41973 1.1733 5.57973 1.1733 5.06639 1.68664L0.719727 6.0333"
+                      stroke="#222222"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.28 1.30154L6.9333 5.6482C6.41997 6.16154 5.57997 6.16154 5.06664 5.6482L0.719971 1.30154"
+                      stroke="#222222"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
+              </IconButton>
+              <Typography
+                variant="medium"
+                sx={{ display: "inline-flex", fontWeight: 600 }}
+              >
+                File structure
+              </Typography>
+            </Box>
+            <Collapse in={fileStructureOpen}>
+              <TableContainer sx={{ py: 1.125 }}>
+                <Table aria-label="simple table">
+                  <TableBody>
+                    <TableRow sx={{ "& td, & th": { border: 0 } }}>
+                      <TableCell sx={{ width: "30px", p: 0 }}>
+                        <Checkbox size="small" color="info" />
+                      </TableCell>
+                      <TableCell sx={{ pl: 0, py: 0 }}>
+                        One file per language. Bundle structure:
+                        <IconButton sx={{ borderRadius: "8px" }}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M8.00016 14.6667C11.6668 14.6667 14.6668 11.6667 14.6668 8.00004C14.6668 4.33337 11.6668 1.33337 8.00016 1.33337C4.3335 1.33337 1.3335 4.33337 1.3335 8.00004C1.3335 11.6667 4.3335 14.6667 8.00016 14.6667Z"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8.00244 10.6666L8.00244 7.33329"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8.00586 5.33337L7.99987 5.33337"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <TextField
+                sx={{ mb: 1 }}
+                id="outlined-basic"
+                // label="Outlined"
+                variant="outlined"
+                fullWidth
+                size="small"
+                placeholder="locale/%LANG_ISO%.%FORMAT%"
+              />
+              <Typography variant="small" color="text.fade">
+                Example: locale/en.json
+              </Typography>
+              <TableContainer sx={{ py: 1.125 }}>
+                <Table aria-label="simple table">
+                  <TableBody>
+                    <TableRow sx={{ "& td, & th": { border: 0 } }}>
+                      <TableCell sx={{ width: "30px", p: 0 }}>
+                        <Checkbox size="small" color="info" />
+                      </TableCell>
+                      <TableCell sx={{ pl: 0, py: 0 }}>
+                        Multiple files per language (use assigned filenames).
+                        Directory prefix:
+                        <IconButton sx={{ borderRadius: "8px" }}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M8.00016 14.6667C11.6668 14.6667 14.6668 11.6667 14.6668 8.00004C14.6668 4.33337 11.6668 1.33337 8.00016 1.33337C4.3335 1.33337 1.3335 4.33337 1.3335 8.00004C1.3335 11.6667 4.3335 14.6667 8.00016 14.6667Z"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8.00244 10.6666L8.00244 7.33329"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8.00586 5.33337L7.99987 5.33337"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <TextField
+                sx={{ mb: 1 }}
+                id="outlined-basic"
+                // label="Outlined"
+                variant="outlined"
+                fullWidth
+                size="small"
+                placeholder="%LANG_ISO%/"
+              />
+              <Typography variant="small" color="text.fade">
+                Example: en/
+              </Typography>
+
+              <TableContainer sx={{ py: 1.125 }}>
+                <Table aria-label="simple table">
+                  <TableBody>
+                    <TableRow sx={{ "& td, & th": { border: 0 } }}>
+                      <TableCell sx={{ pl: 0, py: 0, color: "#7B5100" }}>
+                        2 unassigned keys will be exported to no_filename.json
+                        <IconButton sx={{ borderRadius: "8px" }}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M8.00016 14.6667C11.6668 14.6667 14.6668 11.6667 14.6668 8.00004C14.6668 4.33337 11.6668 1.33337 8.00016 1.33337C4.3335 1.33337 1.3335 4.33337 1.3335 8.00004C1.3335 11.6667 4.3335 14.6667 8.00016 14.6667Z"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8.00244 10.6666L8.00244 7.33329"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8.00586 5.33337L7.99987 5.33337"
+                              stroke="#969696"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Collapse>
           </Box>
         </Grid>
         <Grid

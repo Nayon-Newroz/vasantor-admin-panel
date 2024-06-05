@@ -41,6 +41,7 @@ import Stack from "@mui/material/Stack";
 import Editor from "./Editor";
 import Upload from "./Upload";
 import Download from "./Download";
+import Task from "./Task";
 
 const ProjectDetails = () => {
   const theme = useTheme();
@@ -59,6 +60,8 @@ const ProjectDetails = () => {
         return <Upload />;
       case "Download":
         return <Download />;
+      case "Tasks":
+        return <Task />;
 
       default:
         break;
