@@ -24,7 +24,7 @@ import { Box } from "@mui/material";
 import axios from "axios";
 import { styled, useTheme } from "@mui/material/styles";
 
-const Login = () => {
+const Signup = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [checked, setChecked] = useState(true);
@@ -243,7 +243,7 @@ const Login = () => {
               color="text.light"
               sx={{ fontWeight: 500, mb: 3 }}
             >
-              Login as User
+              Sign Up as User
             </Typography>
             <Box sx={{ mb: 1.5 }}>
               <TextField
@@ -388,7 +388,7 @@ const Login = () => {
               )}
             </Box>
 
-            <Grid container alignItems="center" sx={{ mb: 3 }}>
+            {/* <Grid container alignItems="center" sx={{ mb: 3 }}>
               <Grid item xs={6}>
                 <FormGroup>
                   <FormControlLabel
@@ -432,7 +432,7 @@ const Login = () => {
                   Forgot Password?
                 </Typography>
               </Grid>
-            </Grid>
+            </Grid> */}
             <Button
               variant="contained"
               disableElevation
@@ -459,18 +459,18 @@ const Login = () => {
                   // color:theme.palette.primary.main
                 }
               }
-            
             >
-              Don’t have an accounts?&nbsp;
+              {/* Don’t have an accounts?&nbsp; */}
+
               <Link
                 style={{
                   color: theme.palette.primary.main,
-                  textDecoration: "none",
+                  // textDecoration: "none",
                   fontWeight: 500,
                 }}
-                to="/sign-up"
+                to="/"
               >
-                SIGN UP
+                Back to LOGIN
               </Link>
             </Typography>
           </Box>
@@ -482,4 +482,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

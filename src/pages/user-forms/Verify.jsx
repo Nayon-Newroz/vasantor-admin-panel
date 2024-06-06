@@ -14,32 +14,7 @@ import { AuthContext } from "../../context/AuthContext";
 import OtpInput from "react-otp-input";
 import { Box } from "@mui/material";
 
-// const useStyles = makeStyles((theme) => ({
-//   form: {
-//     padding: "50px",
-//     background: "#fff",
-//     borderRadius: "10px",
-//     textAlign: "center",
-//     width: "400px",
-//     boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-//   },
-//   newInputStyle: {
-//     background: "none",
-//     minWidth: "40px",
-//     minHeight: "40px",
-//     fontSize: "16px",
-//     borderRadius: "3px",
-//     border: "1px solid #c3bebe",
-//   },
-//   newFocusStyle: {
-//     borderRadius: "3px",
-//     border: "1px solid #353b48",
-//     outline: "1px solid #353b48",
-//   },
-// }));
-
 const Verify = () => {
-  // const classes = useStyles();
   const navigate = useNavigate();
   const { login, vasantor_admin_panel } = useContext(AuthContext);
 
@@ -112,7 +87,7 @@ const Verify = () => {
           // className={classes.form}
         >
           <img
-            src="/logo.png"
+            src="/logo.svg"
             alt=""
             style={{ display: "block", margin: "auto", maxWidth: "155px" }}
           />{" "}
