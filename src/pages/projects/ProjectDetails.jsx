@@ -42,10 +42,11 @@ import Editor from "./Editor";
 import Upload from "./Upload";
 import Download from "./Download";
 import Task from "./Task";
+import Contributors from "./Contributors";
 
 const ProjectDetails = () => {
   const theme = useTheme();
-  const [activeMenuName, setActiveMenuName] = useState("Download");
+  const [activeMenuName, setActiveMenuName] = useState("Contributors");
   const [language, setLanguage] = useState("");
 
   const handleChange = (event) => {
@@ -62,6 +63,8 @@ const ProjectDetails = () => {
         return <Download />;
       case "Tasks":
         return <Task />;
+      case "Contributors":
+        return <Contributors />;
 
       default:
         break;
@@ -320,16 +323,16 @@ const ProjectDetails = () => {
                   textTransform: "none",
                   borderRadius: "0px",
                   color:
-                    activeMenuName === "OTA Bundles"
+                    activeMenuName === "Releases"
                       ? theme.palette.primary.main
                       : theme.palette.text.light,
                   borderBottom:
-                    activeMenuName === "OTA Bundles" &&
+                    activeMenuName === "Releases" &&
                     `1px solid ${theme.palette.primary.main}`,
                 }}
-                onClick={() => setActiveMenuName("OTA Bundles")}
+                onClick={() => setActiveMenuName("Releases")}
               >
-                OTA Bundles
+                Releases
               </Button>
             </Grid>
             <Grid item xs={3} sx={{ textAlign: "right" }}>

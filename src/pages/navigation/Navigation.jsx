@@ -10,6 +10,7 @@ import Projects from "../projects/Projects";
 import ProjectDetails from "../projects/ProjectDetails";
 import { Box } from "@mui/material";
 import Signup from "../user-forms/Signup";
+import AddProject from "../projects/AddProject";
 // import NoMatch from "../NoMatch";
 // import Dialog from "@mui/material/Dialog";
 // import DialogContent from "@mui/material/DialogContent";
@@ -74,6 +75,14 @@ const Navigation = () => {
           element={
             <PrivateRoute>
               <ProjectDetails />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="create-project"
+          element={
+            <PrivateRoute>
+              <AddProject />
             </PrivateRoute>
           }
         />

@@ -38,11 +38,10 @@ const Login = () => {
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
-  const customeTextFeild = {
-    // padding: "15px 20px",
-    background: "#FAFAFA",
+  const customeTextFeild = { 
+    background: "#ffffff",
     "& label.Mui-focused": {
-      color: "#A0AAB4",
+      color: "#E5E5E5",
     },
 
     "& .MuiInput-underline:after": {
@@ -54,14 +53,14 @@ const Login = () => {
     "& .MuiOutlinedInput-root": {
       paddingLeft: "24px",
       "& fieldset": {
-        borderColor: "rgba(0,0,0,0)",
+        // borderColor: "rgba(0,0,0,0)",
       },
 
       "&:hover fieldset": {
-        borderColor: "#969696",
+        borderColor: "#E5E5E5",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#969696",
+        borderColor: "#E5E5E5",
       },
     },
   };

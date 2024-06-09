@@ -63,7 +63,7 @@ const Projects = () => {
   };
 
   return (
-    <Box sx={{mb:5}}>
+    <Box sx={{ mb: 5 }}>
       <Box
         sx={{
           pb: 1.125,
@@ -168,9 +168,12 @@ const Projects = () => {
             &nbsp; &nbsp;
             <Button
               variant="outlined"
+              disableElevation
               size="small"
               sx={{ textTransform: "none" }}
               startIcon={<AddOutlinedIcon />}
+             component={Link}
+             to="/create-project"
             >
               Add New Project
             </Button>

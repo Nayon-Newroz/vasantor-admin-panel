@@ -237,10 +237,10 @@ export default function Layout() {
               <ListItem disablePadding sx={{ display: "block" }}>
                 <ListItemButton
                   component={Link}
-                  to="/"
+                  to="/projects"
                   sx={[
                     { ...listButtonStyle },
-                    pathname === "/" && { ...activeStyle },
+                    pathname === "/projects" && { ...activeStyle },
                   ]}
                 >
                   <ListItemIcon
@@ -893,10 +893,10 @@ export default function Layout() {
               <ListItem disablePadding sx={{ display: "block" }}>
                 <ListItemButton
                   component={Link}
-                  to="/"
+                  to="/projects"
                   sx={[
                     { ...listButtonStyle },
-                    pathname === "/" && { ...activeStyle },
+                    pathname === "/projects" && { ...activeStyle },
                   ]}
                 >
                   <ListItemIcon
