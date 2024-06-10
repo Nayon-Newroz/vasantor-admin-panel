@@ -197,7 +197,7 @@ const Contributors = () => {
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell colSpan={2} sx={{ pl: 2.5 }}>
+              <TableCell colSpan={2} sx={{ pl: 2.5 ,py:0.5}}>
                 {/* <Grid
                   container
                   alignItems="center"
@@ -252,7 +252,7 @@ const Contributors = () => {
                   </Grid>
                 </Grid> */}
               </TableCell>
-              <TableCell>
+              <TableCell sx={{py:0.5}}>
                 Referenced languages
                 <IconButton>
                   <svg
@@ -272,7 +272,7 @@ const Contributors = () => {
                   </svg>
                 </IconButton>
               </TableCell>
-              <TableCell>
+              <TableCell sx={{py:0.5}}>
                 <Grid
                   container
                   alignItems="center"
@@ -313,7 +313,7 @@ const Contributors = () => {
                   </Grid>
                 </Grid>
               </TableCell>
-              <TableCell>
+              <TableCell sx={{py:0.5}}>
                 <Grid
                   container
                   alignItems="center"
@@ -354,7 +354,7 @@ const Contributors = () => {
                   </Grid>
                 </Grid>
               </TableCell>
-              <TableCell>
+              <TableCell sx={{py:0.5}}>
                 <Grid
                   container
                   alignItems="center"
@@ -395,7 +395,7 @@ const Contributors = () => {
                   </Grid>
                 </Grid>
               </TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell align="right" sx={{py:0.5}}>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -535,6 +535,7 @@ const Contributors = () => {
         sx={{
           px: 2.5,
           py: 1.125,
+          mb:3
           // borderBottom: "2px solid #E5E5E5",
         }}
       >

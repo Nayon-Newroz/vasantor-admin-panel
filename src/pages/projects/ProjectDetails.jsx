@@ -43,10 +43,11 @@ import Upload from "./Upload";
 import Download from "./Download";
 import Task from "./Task";
 import Contributors from "./Contributors";
+import Releases from "./Releases";
 
 const ProjectDetails = () => {
   const theme = useTheme();
-  const [activeMenuName, setActiveMenuName] = useState("Contributors");
+  const [activeMenuName, setActiveMenuName] = useState("Download");
   const [language, setLanguage] = useState("");
 
   const handleChange = (event) => {
@@ -65,6 +66,8 @@ const ProjectDetails = () => {
         return <Task />;
       case "Contributors":
         return <Contributors />;
+      case "Releases":
+        return <Releases />;
 
       default:
         break;
