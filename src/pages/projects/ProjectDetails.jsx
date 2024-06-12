@@ -47,7 +47,7 @@ import Releases from "./Releases";
 
 const ProjectDetails = () => {
   const theme = useTheme();
-  const [activeMenuName, setActiveMenuName] = useState("Download");
+  const [activeMenuName, setActiveMenuName] = useState("Upload");
   const [language, setLanguage] = useState("");
 
   const handleChange = (event) => {
