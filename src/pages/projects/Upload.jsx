@@ -54,6 +54,8 @@ import StepConnector, {
 } from "@mui/material/StepConnector";
 import StepButton from "@mui/material/StepButton";
 import FileUpload from "./FileUpload";
+import FileUploadCheck from "./FileUploadCheck";
+import FileUploadFinalize from "./FileUploadFinalize";
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 10,
@@ -260,7 +262,7 @@ const Upload = () => {
         alternativeLabel
         activeStep={activeStep}
         connector={<ColorlibConnector />}
-        sx={{mb:12.5}}
+        // sx={{ mb: 12.5 }}
       >
         {steps.map((label) => (
           <Step key={label}>
@@ -284,7 +286,21 @@ const Upload = () => {
             {/* <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
               Step {activeStep + 1}
             </Typography> */}
-            {activeStep === 0 && <FileUpload handleBack={handleBack} handleNext={handleNext}/>}
+            {activeStep === 0 && (
+              <FileUpload handleBack={handleBack} handleNext={handleNext} />
+            )}
+            {activeStep === 1 && (
+              <FileUploadCheck
+                handleBack={handleBack}
+                handleNext={handleNext}
+              />
+            )}
+            {activeStep === 2 && (
+              <FileUploadFinalize
+                handleBack={handleBack}
+                handleNext={handleNext}
+              />
+            )}
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button
                 color="inherit"

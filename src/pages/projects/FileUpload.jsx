@@ -86,7 +86,7 @@ const FileUpload = ({ handleBack, handleNext }) => {
   );
 
   return (
-    <Box>
+    <Box sx={{ mt: 12.5 }}>
       <Box>
         <Typography variant="h6" sx={{ textAlign: "center" }}>
           Upload localization files
