@@ -17,12 +17,13 @@ import {
   Button,
   Grid,
   IconButton,
+  InputAdornment,
   Paper,
   Skeleton,
   TextField,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import FilterListOffOutlinedIcon from "@mui/icons-material/FilterListOffOutlined";
 import FilterListOutlinedIcon from "@mui/icons-material/FilterListOutlined";
@@ -42,6 +43,8 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { useDropzone } from "react-dropzone";
 import language from "../../LanguageData";
 import Allkey from "./Allkey";
+import Replaceable from "./Replaceable";
+import NewlyAdded from "./NewlyAdded";
 console.log("language", language);
 
 const baseStyle = {
@@ -75,7 +78,8 @@ const rejectStyle = {
 
 const FileUploadFinalize = ({ handleBack, handleNext }) => {
   const theme = useTheme();
-  const [baseLanguage, setBaseLanguage] = useState("bn");
+  let navigate = useNavigate();
+  const [activeMenuName, setActiveMenuName] = useState("All Key");
 
   const customeTextFeild = {
     background: "#ffffff",
@@ -87,35 +91,37 @@ const FileUploadFinalize = ({ handleBack, handleNext }) => {
       borderBottomColor: "#B2BAC2",
     },
     "& .MuiOutlinedInput-input": {
-      padding: "15px 24px 15px 0px",
+      padding: "10px 24px 10px 0px",
     },
     "& .MuiOutlinedInput-root": {
       paddingLeft: "24px",
       "& fieldset": {
-        borderColor: "#E5E5E5",
+        borderColor: "rgba(0,0,0,0)",
       },
 
       "&:hover fieldset": {
-        borderColor: "#E5E5E5",
+        borderColor: "rgba(0,0,0,0)",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#E5E5E5",
+        borderColor: "rgba(0,0,0,0)",
       },
     },
   };
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-    useDropzone({ accept: { "image/*": [] } });
+  const showChild = () => {
+    switch (activeMenuName) {
+      case "All Key":
+        return <Allkey />;
 
-  const style = useMemo(
-    () => ({
-      ...baseStyle,
-      ...(isFocused ? focusedStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
-    }),
-    [isFocused, isDragAccept, isDragReject]
-  );
+      case "Replaceable":
+        return <Replaceable />;
+      case "Newly Added":
+        return <NewlyAdded />;
+     
 
+      default:
+        break;
+    }
+  };
   return (
     <Box sx={{ height: "Calc(100vh - 450px)", mt: 4 }}>
       <Box sx={{ width: "100%" }}>
@@ -130,10 +136,184 @@ const FileUploadFinalize = ({ handleBack, handleNext }) => {
         >
           Make sure you take all necessary actions for every rows.
         </Typography>
-        <Allkey/>
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            borderBottom: "1px solid #E5E5E5",
+            background: "#fff",
+            borderRadius: "6px",
+          }}
+        >
+          <Grid container>
+            <Grid item xs={5}>
+              <Button
+                variant="text"
+                // size="small"
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "0px",
+                  padding: "10px 30px",
+                  color:
+                    activeMenuName === "All Key"
+                      ? theme.palette.primary.main
+                      : theme.palette.text.light,
+                  borderBottom:
+                    activeMenuName === "All Key" &&
+                    `1px solid ${theme.palette.primary.main}`,
+                }}
+                onClick={() => setActiveMenuName("All Key")}
+              >
+                All Key
+              </Button>
+              <Button
+                variant="text"
+                // size="small"
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "0px",
+                  padding: "10px 30px",
+                  color:
+                    activeMenuName === "Replaceable"
+                      ? theme.palette.primary.main
+                      : theme.palette.text.light,
+                  borderBottom:
+                    activeMenuName === "Replaceable" &&
+                    `1px solid ${theme.palette.primary.main}`,
+                }}
+                onClick={() => setActiveMenuName("Replaceable")}
+              >
+                Replaceable
+              </Button>
+              <Button
+                variant="text"
+                // size="small"
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "0px",
+                  padding: "10px 30px",
+                  color:
+                    activeMenuName === "Newly Added"
+                      ? theme.palette.primary.main
+                      : theme.palette.text.light,
+                  borderBottom:
+                    activeMenuName === "Newly Added" &&
+                    `1px solid ${theme.palette.primary.main}`,
+                }}
+                onClick={() => setActiveMenuName("Newly Added")}
+              >
+                Newly Added
+              </Button>
+            </Grid>
+            <Grid item xs={7} sx={{ textAlign: "right" }}>
+              <Grid container alignItems="center" justifyContent="flex-end">
+                <Grid
+                  item
+                  xs="auto"
+                  // sx={{ borderLeft: "1px solid #E5E5E5" }}
+                >
+                  <TextField
+                    //   label="With normal TextField"
+
+                    sx={{ ...customeTextFeild,background:"#EFF3FF" }}
+                    size="small"
+                    // placeholder="Search people..."
+                    id="outlined-start-adornment"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          {" "}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                              stroke="#555555"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M22 22L20 20"
+                              stroke="#555555"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Grid>
+
+                <Grid item xs="auto" sx={{ borderLeft: "1px solid #E5E5E5" }}>
+               
+                  <IconButton
+                    variant="outlined"
+                    disableElevation
+                    size="small"
+                    sx={{
+                      textTransform: "none",
+                      borderRadius: "0px",
+                      padding: "10px",
+                    }}
+                    //  component={Link}
+                    //  to="/create-project"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 9V3H15"
+                        stroke="#555555"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3 15V21H9"
+                        stroke="#555555"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M21 3L13.5 10.5"
+                        stroke="#555555"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M10.5 13.5L3 21"
+                        stroke="#555555"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </IconButton>
+                 
+                </Grid>
+
+              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+            {showChild()} 
+            </Grid>
+          </Grid>
+        </Box>
+       
+        <Box sx={{ textAlign: "center",mt:2 }}>
           {" "}
-          <Button variant="ounlined" disableElevation onClick={handleBack}>
+          <Button variant="outlined" disableElevation onClick={handleBack}>
             Cancel
           </Button>
           &nbsp;&nbsp;

@@ -72,9 +72,19 @@ const rejectStyle = {
 
 const FileUpload = ({ handleBack, handleNext }) => {
   const theme = useTheme();
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-    useDropzone({ accept: { "image/*": [] } });
-
+  const {
+    acceptedFiles,
+    getRootProps,
+    getInputProps,
+    isFocused,
+    isDragAccept,
+    isDragReject,
+  } = useDropzone({ accept: { "image/*": [] } });
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
   const style = useMemo(
     () => ({
       ...baseStyle,
@@ -84,6 +94,11 @@ const FileUpload = ({ handleBack, handleNext }) => {
     }),
     [isFocused, isDragAccept, isDragReject]
   );
+  useEffect(() => {
+    if (acceptedFiles?.length > 0) {
+      handleNext();
+    }
+  }, [acceptedFiles]);
 
   return (
     <Box sx={{ mt: 12.5 }}>

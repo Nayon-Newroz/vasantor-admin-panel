@@ -172,8 +172,8 @@ const Projects = () => {
               size="small"
               sx={{ textTransform: "none" }}
               startIcon={<AddOutlinedIcon />}
-             component={Link}
-             to="/create-project"
+              component={Link}
+              to="/create-project"
             >
               Add New Project
             </Button>
@@ -472,7 +472,7 @@ const Projects = () => {
                     <Grid container alignItems="center">
                       <Grid item xs={6}>
                         <Typography variant="small" color="text.light">
-                          Flatform
+                          Platform
                         </Typography>
                       </Grid>
                       <Grid item xs={6} sx={{ textAlign: "right" }}>

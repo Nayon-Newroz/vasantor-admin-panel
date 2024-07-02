@@ -43,38 +43,9 @@ import { useDropzone } from "react-dropzone";
 import language from "../../LanguageData";
 console.log("language", language);
 
-const baseStyle = {
-  flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: "70px 20px 20px",
-  height: "313px",
-  borderWidth: 2,
-  borderRadius: 2,
-  borderColor: "#eeeeee",
-  borderStyle: "dashed",
-  backgroundColor: "#fff",
-  // color: "#bdbdbd",
-  outline: "none",
-  transition: "border .24s ease-in-out",
-};
-
-const focusedStyle = {
-  borderColor: "#2196f3",
-};
-
-const acceptStyle = {
-  borderColor: "#00e676",
-};
-
-const rejectStyle = {
-  borderColor: "#ff1744",
-};
-
 const FileUploadCheck = ({ handleBack, handleNext }) => {
   const theme = useTheme();
-  const [baseLanguage, setBaseLanguage] = useState("bn");
+  const [baseLanguage, setBaseLanguage] = useState("en");
 
   const customeTextFeild = {
     background: "#ffffff",
@@ -102,26 +73,13 @@ const FileUploadCheck = ({ handleBack, handleNext }) => {
       },
     },
   };
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-    useDropzone({ accept: { "image/*": [] } });
-
-  const style = useMemo(
-    () => ({
-      ...baseStyle,
-      ...(isFocused ? focusedStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
-    }),
-    [isFocused, isDragAccept, isDragReject]
-  );
 
   return (
     <Grid
       container
       direction="column"
       justifyContent="space-between"
-      sx={{ height: "Calc(100vh - 450px)",mt: 12.5  }}
-     
+      sx={{ height: "Calc(100vh - 450px)", mt: 12.5 }}
     >
       <Box sx={{ width: "100%" }}>
         {" "}
@@ -249,12 +207,12 @@ const FileUploadCheck = ({ handleBack, handleNext }) => {
       </Box>
       <Box sx={{ width: "100%", textAlign: "center" }}>
         {" "}
-        <Button variant="ounlined" disableElevation onClick={handleBack}>
+        <Button variant="outlined"  disableElevation onClick={handleBack}>
           Cancel
         </Button>
         &nbsp;&nbsp;
         <Button variant="contained" disableElevation onClick={handleNext}>
-          Apply
+          Import
         </Button>
       </Box>
     </Grid>

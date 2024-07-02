@@ -301,7 +301,7 @@ const Upload = () => {
                 handleNext={handleNext}
               />
             )}
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+            {/* <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button
                 color="inherit"
                 disabled={activeStep === 0}
@@ -329,7 +329,7 @@ const Upload = () => {
                       : "Complete Step"}
                   </Button>
                 ))}
-            </Box>
+            </Box> */}
           </React.Fragment>
         )}
       </div>

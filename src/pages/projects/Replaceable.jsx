@@ -38,9 +38,8 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import UpdatableKeyes from "./UpdatableKeyes";
 
-const Allkey = () => {
+const Replaceable = () => {
   const theme = useTheme();
   let navigate = useNavigate();
 
@@ -71,7 +70,6 @@ const Allkey = () => {
     },
   };
   return (
-    <>
     <Paper
       sx={{
         boxShadow: "none",
@@ -158,7 +156,62 @@ const Allkey = () => {
                   justifyContent="space-between"
                 >
                   <Grid item xs="auto">
-                    Value
+                    Value Existing
+                  </Grid>
+                  <Grid item xs="auto">
+                    <IconButton>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.00658 12.6667L1.65991 9.32666"
+                          stroke="#555555"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M5.00659 1.33331V12.6666"
+                          stroke="#555555"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.99316 1.33331L12.3398 4.67331"
+                          stroke="#555555"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.99316 12.6666V1.33331"
+                          stroke="#555555"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </IconButton>
+                  </Grid>
+                </Grid>
+              </TableCell>
+              <TableCell>
+                <Grid
+                  container
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Grid item xs="auto">
+                    Value to Updare
                   </Grid>
                   <Grid item xs="auto">
                     <IconButton>
@@ -316,61 +369,6 @@ const Allkey = () => {
                   </Grid>
                 </Grid>
               </TableCell>
-              <TableCell>
-                <Grid
-                  container
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
-                  <Grid item xs="auto">
-                    Screenshot Source
-                  </Grid>
-                  <Grid item xs="auto">
-                    <IconButton>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.00658 12.6667L1.65991 9.32666"
-                          stroke="#555555"
-                          stroke-width="1.5"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M5.00659 1.33331V12.6666"
-                          stroke="#555555"
-                          stroke-width="1.5"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M8.99316 1.33331L12.3398 4.67331"
-                          stroke="#555555"
-                          stroke-width="1.5"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M8.99316 12.6666V1.33331"
-                          stroke="#555555"
-                          stroke-width="1.5"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </IconButton>
-                  </Grid>
-                </Grid>
-              </TableCell>
 
               <TableCell>A</TableCell>
             </TableRow>
@@ -383,18 +381,16 @@ const Allkey = () => {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    background: [1, 4, 8].includes(i) ? "#FFECEC" : "",
+                    background: "#FFECEC",
                   }}
                 >
                   <Checkbox size="small" /> Brand tagline
                 </TableCell>
-                <TableCell
-                  sx={{ background: [1, 4, 8].includes(i) ? "#FFECEC" : "" }}
-                >
+                <TableCell sx={{ background: "#EFF3FF" }}>
                   <Box
                     sx={{
                       whiteSpace: "nowrap",
-                      width: "250px",
+                      width: "200px",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                     }}
@@ -403,9 +399,20 @@ const Allkey = () => {
                     minimum limit of 30 rupees in mobile phone recharge
                   </Box>
                 </TableCell>
-                <TableCell
-                  sx={{ background: [1, 4, 8].includes(i) ? "#FFECEC" : "" }}
-                >
+                <TableCell sx={{ background: "#F9E8EF" }}>
+                  <Box
+                    sx={{
+                      whiteSpace: "nowrap",
+                      width: "200px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    The country's top mobile operator has decided to make the
+                    minimum limit of 30 rupees in mobile phone recharge
+                  </Box>
+                </TableCell>
+                <TableCell>
                   <Box
                     sx={{
                       whiteSpace: "nowrap",
@@ -417,9 +424,8 @@ const Allkey = () => {
                     Android, IOS, Web
                   </Box>
                 </TableCell>
-                <TableCell
-                  sx={{ background: [1, 4, 8].includes(i) ? "#FFECEC" : "" }}
-                >
+
+                <TableCell>
                   <Box
                     sx={{
                       whiteSpace: "nowrap",
@@ -429,21 +435,6 @@ const Allkey = () => {
                     }}
                   >
                     Brand, Verify, Tagline
-                  </Box>
-                </TableCell>
-
-                <TableCell
-                  sx={{ background: [1, 4, 8].includes(i) ? "#FFECEC" : "" }}
-                >
-                  <Box
-                    sx={{
-                      whiteSpace: "nowrap",
-                      width: "200px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    https://www.domain.com/directory/abc.jpg
                   </Box>
                 </TableCell>
 
@@ -702,14 +693,8 @@ const Allkey = () => {
           You can take bulk action by those button if you select row’s above
         </Typography>
       </Box>
-
-<Box sx={{height:"20px" ,background:"#fafafa"}}></Box>
-   
- 
-    <UpdatableKeyes/>
     </Paper>
-    </>
   );
 };
 
-export default Allkey;
+export default Replaceable;

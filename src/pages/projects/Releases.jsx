@@ -43,7 +43,7 @@ import IOSSDK from "./IOSSDK";
 const Releases = () => {
   const theme = useTheme();
   let navigate = useNavigate();
-  const [activeMenuName, setActiveMenuName] = useState("iOS SDK")
+  const [activeMenuName, setActiveMenuName] = useState("iOS SDK");
 
   const customeTextFeild = {
     background: "#ffffff",
@@ -94,82 +94,79 @@ const Releases = () => {
   };
   return (
     <Box>
- <Box sx={{ borderBottom: "1px solid #ECECEC",my:1.75 }}>
-          <Grid container>
-            <Grid item xs={9}>
-              <Button
-                variant="text"
-                // size="small"
-                sx={{
-                  textTransform: "none",
-                  borderRadius: "0px",
-                  color:
-                    activeMenuName === "iOS SDK"
-                      ? theme.palette.primary.main
-                      : theme.palette.text.light,
-                  borderBottom:
-                    activeMenuName === "iOS SDK" &&
-                    `1px solid ${theme.palette.primary.main}`,
-                }}
-                onClick={() => setActiveMenuName("iOS SDK")}
-              >
-                iOS SDK
-              </Button>
-              <Button
-                variant="text"
-                // size="small"
-                sx={{
-                  textTransform: "none",
-                  borderRadius: "0px",
-                  color:
-                    activeMenuName === "Android SDK"
-                      ? theme.palette.primary.main
-                      : theme.palette.text.light,
-                  borderBottom:
-                    activeMenuName === "Android SDK" &&
-                    `1px solid ${theme.palette.primary.main}`,
-                }}
-                onClick={() => setActiveMenuName("Android SDK")}
-              >
-                Android SDK
-              </Button>
-              <Button
-                variant="text"
-                // size="small"
-                sx={{
-                  textTransform: "none",
-                  borderRadius: "0px",
-                  color:
-                    activeMenuName === "Flutter SDK"
-                      ? theme.palette.primary.main
-                      : theme.palette.text.light,
-                  borderBottom:
-                    activeMenuName === "Flutter SDK" &&
-                    `1px solid ${theme.palette.primary.main}`,
-                }}
-                onClick={() => setActiveMenuName("Flutter SDK")}
-              >
-                Flutter SDK
-              </Button>
-              
-              
-            </Grid>
-            <Grid item xs={3} sx={{ textAlign: "right" }}>
+      <Box sx={{ borderBottom: "1px solid #ECECEC", my: 1.75 }}>
+        <Grid container>
+          <Grid item xs={9}>
+            <Button
+              variant="text"
+              // size="small"
+              sx={{
+                textTransform: "none",
+                borderRadius: "0px",
+                color:
+                  activeMenuName === "iOS SDK"
+                    ? theme.palette.primary.main
+                    : theme.palette.text.light,
+                borderBottom:
+                  activeMenuName === "iOS SDK" &&
+                  `1px solid ${theme.palette.primary.main}`,
+              }}
+              onClick={() => setActiveMenuName("iOS SDK")}
+            >
+              iOS SDK
+            </Button>
+            <Button
+              variant="text"
+              // size="small"
+              sx={{
+                textTransform: "none",
+                borderRadius: "0px",
+                color:
+                  activeMenuName === "Android SDK"
+                    ? theme.palette.primary.main
+                    : theme.palette.text.light,
+                borderBottom:
+                  activeMenuName === "Android SDK" &&
+                  `1px solid ${theme.palette.primary.main}`,
+              }}
+              onClick={() => setActiveMenuName("Android SDK")}
+            >
+              Android SDK
+            </Button>
+            <Button
+              variant="text"
+              // size="small"
+              sx={{
+                textTransform: "none",
+                borderRadius: "0px",
+                color:
+                  activeMenuName === "Flutter SDK"
+                    ? theme.palette.primary.main
+                    : theme.palette.text.light,
+                borderBottom:
+                  activeMenuName === "Flutter SDK" &&
+                  `1px solid ${theme.palette.primary.main}`,
+              }}
+              onClick={() => setActiveMenuName("Flutter SDK")}
+            >
+              Flutter SDK
+            </Button>
+          </Grid>
+          <Grid item xs={3} sx={{ textAlign: "right" }}>
             <Button
               variant="contained"
               disableElevation
               size="small"
-              sx={{ textTransform: "none" }} 
-            //  component={Link}
-            //  to="/create-project"
+              sx={{ textTransform: "none" }}
+              //  component={Link}
+              //  to="/create-project"
             >
-            Generate new bundle
+              Generate new bundle
             </Button>
-            </Grid>
           </Grid>
-        </Box>
-        <Box>{showChild()}</Box>
-   
+        </Grid>
+      </Box>
+      <Box>{showChild()}</Box>
     </Box>
   );
 };
